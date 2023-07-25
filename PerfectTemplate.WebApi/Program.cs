@@ -61,6 +61,7 @@ static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
 }
 
 builder.Services.AddScoped<IWeather, WeatherService>();
+builder.Services.AddScoped(typeof(IDynamicComparer<>), typeof(ComparerService<>));
 
 builder.Services.AddHealthChecks();
 

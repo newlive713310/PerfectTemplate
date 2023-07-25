@@ -31,5 +31,20 @@ namespace PerfectTemplate.WebApi.Controllers.v1
             }
             finally { }
         }
+        [HttpPost("[action]")]
+        public async Task<IActionResult> GetWeatherByCoordinates(GetWeatherByCoordinatesRequest request)
+        {
+            try
+            {
+                var response = await _weather.GetWeatherByCoordinates(request);
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally { }
+        }
     }
 }

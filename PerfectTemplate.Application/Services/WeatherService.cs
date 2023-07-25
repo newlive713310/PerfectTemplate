@@ -118,9 +118,72 @@ namespace PerfectTemplate.Application.Services
             }
         }
 
-        public Task<GetWeatherByCoordinatesReply> GetWeatherByCoordinates(GetWeatherByCoordinatesRequest request)
+        public async Task<GetWeatherByCoordinatesReply> GetWeatherByCoordinates(GetWeatherByCoordinatesRequest request)
         {
-            throw new NotImplementedException();
+            // Creating empty returned model
+            var reply = GetWeatherByCoordinatesReply.GetEmptyModel();
+
+            //_logger.LogDebug($"Debug Info | CorrelationId {correlationId}: Querying weather data to external service with parameter {lat}, {lon}");
+
+            using (var client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = new Uri(_weatherApi);
+                    var response = await client.GetAsync($"/data/2.5/weather?lat={request.Latitude}&lon={request.Longitude}&appid={_apiKey}");
+                    response.EnsureSuccessStatusCode();
+
+                    // Getting data from weather external service
+                    var stringResult = await response.Content.ReadAsStringAsync();
+
+                    //_logger.LogTrace($"Trace Info | CorrelationId {correlationId}: Returned weather data from {nameof(GetWeatherByCityName)} method {JsonConvert.SerializeObject(stringResult)}");
+
+                    var rawWeather = JsonConvert.DeserializeObject<WeatherApiResponse>(stringResult);
+                    reply = new GetWeatherByCoordinatesReply()
+                    {
+                        Temp = rawWeather.Main.Temp,
+                        Summary = string.Join(",", rawWeather.Weather.Select(x => x.Main)),
+                        City = rawWeather.Name
+                    };
+
+                    // Creating Mongo client
+                    //var clientMongo = new MongoClient(_mongoDb);
+
+                    //using (var cursor = await clientMongo.ListDatabasesAsync())
+                    //{
+                    //    _logger.LogDebug($"Debug Info | CorrelationId {correlationId}: Getting db test in MongoDb");
+                    //    var db = clientMongo.GetDatabase("test");
+
+                    //    // Checking collection WeatherResponses exists
+                    //    var collectionExists = db.ListCollectionNames().ToList().Contains("WeatherResponses");
+
+                    //    if (!collectionExists)
+                    //    {
+                    //        _logger.LogDebug($"Debug Info | CorrelationId {correlationId}: Creating collection WeatherResponses in MongoDb");
+                    //        await db.CreateCollectionAsync("WeatherResponses");
+                    //    }
+
+                    //    var weatherResponses = db.GetCollection<BsonDocument>("WeatherResponses");
+
+                    //    var doc = new BsonDocument
+                    //        {
+                    //            { "Datetime", DateTime.UtcNow},
+                    //            { "Latitude", lat},
+                    //            { "Longitude", lon},
+                    //            { "CorrelationId", correlationId},
+                    //            { "Temp", reply.Temp },
+                    //            { "Summary", reply.Summary },
+                    //            { "City", reply.City }
+                    //        };
+
+                    //    await weatherResponses.InsertOneAsync(doc);
+                    //}
+                }
+                catch (HttpRequestException httpRequestException) { throw; }
+                finally { }
+
+                return reply;
+            }
         }
     }
 }

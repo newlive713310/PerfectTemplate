@@ -5,13 +5,15 @@ VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerfectTemplate.WebApi", "PerfectTemplate.WebApi\PerfectTemplate.WebApi.csproj", "{EEE8D5E9-5005-4958-AF78-40DE892B9665}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfectTemplate.Infrastructure", "PerfectTemplate.Infrastructure\PerfectTemplate.Infrastructure.csproj", "{255F9C35-BBAB-4408-8F0B-AEB701801266}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerfectTemplate.Infrastructure", "PerfectTemplate.Infrastructure\PerfectTemplate.Infrastructure.csproj", "{255F9C35-BBAB-4408-8F0B-AEB701801266}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfectTemplate.Application", "PerfectTemplate.Application\PerfectTemplate.Application.csproj", "{D93AD8FF-606E-478B-82A3-BF42826901C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerfectTemplate.Application", "PerfectTemplate.Application\PerfectTemplate.Application.csproj", "{D93AD8FF-606E-478B-82A3-BF42826901C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfectTemplate.Domain", "PerfectTemplate.Domain\PerfectTemplate.Domain.csproj", "{38DDAE39-22B1-4A37-A3E0-4E7F88140620}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerfectTemplate.Domain", "PerfectTemplate.Domain\PerfectTemplate.Domain.csproj", "{38DDAE39-22B1-4A37-A3E0-4E7F88140620}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfectTemplate.gRPC", "PerfectTemplate.gRPC\PerfectTemplate.gRPC.csproj", "{4F288757-DE53-4E93-99DF-6E9717CC2CB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerfectTemplate.gRPC", "PerfectTemplate.gRPC\PerfectTemplate.gRPC.csproj", "{4F288757-DE53-4E93-99DF-6E9717CC2CB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanMouse", "HumanMouse\HumanMouse.csproj", "{526284BA-6599-46A5-B8E6-0FCA986B477C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{4F288757-DE53-4E93-99DF-6E9717CC2CB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F288757-DE53-4E93-99DF-6E9717CC2CB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F288757-DE53-4E93-99DF-6E9717CC2CB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{526284BA-6599-46A5-B8E6-0FCA986B477C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{526284BA-6599-46A5-B8E6-0FCA986B477C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{526284BA-6599-46A5-B8E6-0FCA986B477C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{526284BA-6599-46A5-B8E6-0FCA986B477C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option csharp_namespace = "PerfectTemplate.gRPC.Protos";
+
+package PerfectTemplate;
+
+service PerfectTemplateInfo {
+   rpc GetWeatherByCityName (GetWeatherByCityNameRequest) returns (GetWeatherByCityNameReply);
+   rpc GetWeatherByCoordinates (GetWeatherByCoordinatesRequest) returns (GetWeatherByCoordinatesReply);
+}
+message GetWeatherByCityNameRequest {
+	string CityName = 10;
+}
+message GetWeatherByCityNameReply {
+    string Temp = 10;
+    string Summary = 20;
+    string City = 30;
+}
+message GetWeatherByCoordinatesRequest {
+    string Latitude = 10;
+    string Longitude = 20;
+}
+message GetWeatherByCoordinatesReply {
+    string Temp = 10;
+    string Summary = 20;
+    string City = 30;
+}

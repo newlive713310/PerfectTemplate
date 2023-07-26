@@ -1,4 +1,4 @@
-﻿namespace PerfectTemplate.Domain.Models
+﻿namespace PerfectTemplate.Application.Models.Entities
 {
     public class User
     {

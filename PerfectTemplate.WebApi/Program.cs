@@ -4,8 +4,26 @@ using PerfectTemplate.Application.Interfaces;
 using PerfectTemplate.Application.Services;
 using Polly;
 using Polly.Extensions.Http;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Vault configuration settings
+//try
+//{
+//    VaultSharp.V1.AuthMethods.IAuthMethodInfo authMethod = new VaultSharp.V1.AuthMethods.Token.TokenAuthMethodInfo(config["Vault:Secret"]);
+
+//    var vaultClientSettings = new VaultClientSettings(config["Vault:Address"], authMethod);
+
+//    var vaultClient = new VaultClient(vaultClientSettings);
+
+//    var secrets = await vaultClient.V1.Secrets.KeyValue.V2.ReadSecretAsync(
+//        path: config["Vault:SecretPath"],
+//        mountPoint: config["Vault:MountPoint"]);
+
+//    builder.Configuration.AddInMemoryCollection(secrets.Data.Data.ToDictionary(x => "ConnectionStrings:" + x.Key, x => x.Value.ToString()));
+//}
+//catch (Exception e) { Console.WriteLine("HashiCorp Vault error: " + e.Message); }
 
 // Add services to the container.
 
@@ -82,6 +100,13 @@ builder.Services.AddCors(options =>
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });
+});
+
+builder.Host.UseSerilog((ctx, config) =>
+{
+    config
+        .ReadFrom.Configuration(builder.Configuration)
+        .Enrich.FromLogContext();
 });
 
 var app = builder.Build();

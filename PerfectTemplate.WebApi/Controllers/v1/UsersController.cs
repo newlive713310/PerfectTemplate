@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PerfectTemplate.Application.Interfaces;
-using PerfectTemplate.Domain.Models;
+using PerfectTemplate.Application.Models.Entities;
 
 namespace PerfectTemplate.WebApi.Controllers.v1
 {

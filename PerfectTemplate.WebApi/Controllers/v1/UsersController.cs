@@ -21,9 +21,9 @@ namespace PerfectTemplate.WebApi.Controllers.v1
         {
             var users = new List<User>()
             {
-                new User() { Id = Guid.NewGuid(), FirstName = "Steven", LastName = "Gerrard", Created = new DateTime(2012, 12, 12) },
-                new User() { Id = Guid.NewGuid(), FirstName = "Wayne", LastName = "Rooney", Created = new DateTime(2011, 11, 11) },
-                new User() { Id = Guid.NewGuid(), FirstName = "Frank", LastName = "Lampard", Created = new DateTime(2010, 10, 10) }
+                new User() { Id = Guid.NewGuid(), FirstName = "Tom", LastName = "G", Created = new DateTime(2012, 12, 12) },
+                new User() { Id = Guid.NewGuid(), FirstName = "Tim", LastName = "R", Created = new DateTime(2011, 11, 11) },
+                new User() { Id = Guid.NewGuid(), FirstName = "Tony", LastName = "L", Created = new DateTime(2010, 10, 10) }
             };
 
             // Поле, по которому нужно сортировать

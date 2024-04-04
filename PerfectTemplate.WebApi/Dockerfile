@@ -24,3 +24,6 @@ ENV ASPNETCORE_URLS http://*:11640
 EXPOSE 11640
 
 ENTRYPOINT ["dotnet", "PerfectTemplate.WebApi.dll"]
+
+#docker build -t perfectTemplate --file ./PerfectTemplate.WebApi/Dockerfile .
+#docker run -d -p 11640:11640 --name perfectTemplate_container perfectTemplate

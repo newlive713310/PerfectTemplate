@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using PerfectTemplate.Application.Interfaces;
 using PerfectTemplate.Domain.Models.Weather;
 

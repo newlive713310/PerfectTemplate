@@ -5,7 +5,7 @@ namespace PerfectTemplate.Application.Models
 {
     public class ApplicationContext : DbContext
     {
-        public virtual DbSet<User> Groups { get; set; }
+        public virtual DbSet<User> Users { get; set; }
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) { }
     }
 }

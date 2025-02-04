@@ -9,18 +9,23 @@ namespace PerfectTemplate.WebApi.Controllers.v1
         [HttpGet]
         public async Task<IActionResult> Check(string[] wordsInMagazine, string[] wordsInNote)
         {
-            Dictionary<string, int> _dict = wordsInMagazine.GroupBy(x =>x).ToDictionary(x => x.Key, x => x.Count());
+            var wordCount = wordsInMagazine.GroupBy(word => word)
+                                    .ToDictionary(group => group.Key, group => group.Count());
 
-            for (int i = 0; i < wordsInNote.Length; i++)
+            foreach (var word in wordsInNote)
             {
-                if (_dict.ContainsKey(wordsInNote[i]))
+                if (wordCount.TryGetValue(word, out int count))
                 {
-                    if (_dict[wordsInNote[i]] == 0)
+                    if (count == 0)
+                    {
                         return Ok(false);
-
-                    _dict[wordsInNote[i]]--;
+                    }
+                    wordCount[word]--;
                 }
-                else return Ok(false);
+                else
+                {
+                    return Ok(false);
+                }
             }
 
             return Ok(true);

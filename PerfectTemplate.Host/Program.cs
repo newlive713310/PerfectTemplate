@@ -18,6 +18,9 @@ builder.Services.AddSwaggerGen(c =>
         new OpenApiInfo { Title = "gRPC transcoding", Version = "v1" });
 });
 
+//builder.Services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationContext>(opt =>
+//        opt.UseNpgsql(builder.Configuration.GetConnectionString("EmailConnection")));
+
 var app = builder.Build();
 
 app.UseSwagger();
@@ -30,6 +33,9 @@ if (app.Environment.IsDevelopment())
     });
     app.MapGrpcReflectionService();
 }
+
+//ApplyMigration();
+
 app.MapGrpcHealthChecksService();
 
 // Configure the HTTP request pipeline.
@@ -37,3 +43,18 @@ app.MapGrpcService<GreeterService>();
 app.MapGet("/", () => "Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
 
 app.Run();
+
+//void ApplyMigration()
+//{
+//    using (var scope = app.Services.CreateScope())
+//    {
+//        var _Db = scope.ServiceProvider.GetRequiredService<ApplicationContext>();
+//        if (_Db != null)
+//        {
+//            if (_Db.Database.GetPendingMigrations().Any())
+//            {
+//                _Db.Database.Migrate();
+//            }
+//        }
+//    }
+//}

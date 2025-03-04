@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option csharp_namespace = "PerfectTemplate.Host";
+
+package greet;
+
+import "google/api/annotations.proto";
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc StartCardReleaseProcess (StartCardReleaseRequest) returns (StartCardReleaseResponse) {
+    option (google.api.http) = {
+      post: "/v1/StartCardReleaseProcess"
+      body: "*"
+    };
+  }
+}
+
+message StartCardReleaseRequest {
+    int64 CardReleaseId = 10;
+}
+
+message StartCardReleaseResponse {
+    bool success = 10;
+    string message = 20;
+}

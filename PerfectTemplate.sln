@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerfectTemplate.Domain", "P
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerfectTemplate.gRPC", "PerfectTemplate.gRPC\PerfectTemplate.gRPC.csproj", "{4F288757-DE53-4E93-99DF-6E9717CC2CB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanMouse", "HumanMouse\HumanMouse.csproj", "{526284BA-6599-46A5-B8E6-0FCA986B477C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HumanMouse", "HumanMouse\HumanMouse.csproj", "{526284BA-6599-46A5-B8E6-0FCA986B477C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfectTemplate.Host", "PerfectTemplate.Host\PerfectTemplate.Host.csproj", "{7C73AFF1-BAAB-40E8-A9CC-B2A9F59C4095}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{526284BA-6599-46A5-B8E6-0FCA986B477C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{526284BA-6599-46A5-B8E6-0FCA986B477C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{526284BA-6599-46A5-B8E6-0FCA986B477C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C73AFF1-BAAB-40E8-A9CC-B2A9F59C4095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C73AFF1-BAAB-40E8-A9CC-B2A9F59C4095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C73AFF1-BAAB-40E8-A9CC-B2A9F59C4095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C73AFF1-BAAB-40E8-A9CC-B2A9F59C4095}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

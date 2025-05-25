@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Models;
 using PerfectTemplate.Application.Interfaces;
 using PerfectTemplate.Application.Services;
-using PerfectTemplate.WebApi.Middleware;
 using Polly;
 using Polly.Extensions.Http;
 using Serilog;
@@ -112,8 +111,6 @@ builder.Host.UseSerilog((ctx, config) =>
 });
 
 var app = builder.Build();
-
-app.UseMiddleware<CorrelationIdMiddleware>();
 
 // Configure the HTTP request pipeline.
 app.UseSwagger();

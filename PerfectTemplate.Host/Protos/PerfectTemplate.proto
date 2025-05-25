@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option csharp_namespace = "PerfectTemplate.Host.Protos";
+
+package PerfectTemplate;
+
+import "google/api/annotations.proto";
+
+service PerfectTemplateInfo {
+   //rpc GetWeatherByCityName (GetWeatherByCityNameRequest) returns (GetWeatherByCityNameReply);
+   //rpc GetWeatherByCoordinates (GetWeatherByCoordinatesRequest) returns (GetWeatherByCoordinatesReply);
+
+   rpc GetWeatherByCityName (GetWeatherByCityNameRequest) returns (GetWeatherByCityNameReply) {
+       option (google.api.http) = {
+           post: "/v1/GetWeatherByCityName"
+           body: "*"
+       };
+   }
+   rpc GetWeatherByCoordinates (GetWeatherByCoordinatesRequest) returns (GetWeatherByCoordinatesReply) {
+       option (google.api.http) = {
+           post: "/v1/GetWeatherByCoordinates"
+           body: "*"
+       };
+   }
+}
+message GetWeatherByCityNameRequest {
+	string CityName = 10;
+}
+message GetWeatherByCityNameReply {
+    string Temp = 10;
+    string Summary = 20;
+    string City = 30;
+}
+message GetWeatherByCoordinatesRequest {
+    string Latitude = 10;
+    string Longitude = 20;
+}
+message GetWeatherByCoordinatesReply {
+    string Temp = 10;
+    string Summary = 20;
+    string City = 30;
+}

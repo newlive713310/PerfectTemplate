@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using PerfectTemplate.Application.Interfaces;
 
 namespace PerfectTemplate.WebApi.Controllers.v1
